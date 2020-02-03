@@ -51,6 +51,8 @@ sayHello(&myAge, &thisYear);
 printf("My name is %s, I am %d years old and this year is %d \n", myName, myAge , thisYear);
 //把结果打印出来 %S 表示String
 
+
+return 0;
 }
 
 void sayHello(int* age, int* year){
