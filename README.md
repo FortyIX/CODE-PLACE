@@ -7,5 +7,5 @@ This is the index of the code in this repo. each come with the link and the deti
 |    Code  | Note         | 
 | ------------- |:-------------:| 
 | [c_pointer.c](https://github.com/FortyIX/CODE-PLACE/blob/master/c_pointer.c)    | Tutorial showing how pointers and Pass by Reference work in C and how command line arguments can be passed into the program. it is writern in CHINESE. | 
-| col 2 is      | centered      |   
+| [cpp_concurrency_find_sum.cpp](https://github.com/FortyIX/CODE-PLACE/blob/master/code/cpp_concurrency_find_sum)    | centered      |   
 | zebra stripes | are neat      |   
