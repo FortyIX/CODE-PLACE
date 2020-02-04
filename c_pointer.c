@@ -49,7 +49,7 @@ sayHello(&myAge, &thisYear);
 //把myAge和year的地址传进函数里，
 
 printf("My name is %s, I am %d years old and this year is %d \n", myName, myAge , thisYear);
-//把结果打印出来 %S 表示String
+//把结果打印出来 %S 表示String %d => numbers
 
 
 return 0;
