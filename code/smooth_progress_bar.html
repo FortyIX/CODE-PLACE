@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script>
+        function onPageLoad() {
+            progress(15, true, "#timer");
+        }
+
+        function progress(limit, isCountDown, idselector) {
+            factor = 10; //  (1000/your_desired_time_interval) ms 
+            max_value = 100;
+            isCountDown ? current_time = max_value : current_time = 0;
+            isCountDown ? $(idselector).css("width", "100%") : $(idselector).css("width", "0%")
+            counter = 0 //check if it reaches end
+
+            var timer_instance = setInterval(() => {
+                if (counter < limit * factor) {
+                    delta_step = max_value / (limit * factor);
+                    isCountDown ? current_time -= delta_step : current_time += delta_step;
+                    percentage_now = (current_time / max_value) * 100 + "%"
+                    $(idselector).css("width", percentage_now)
+                    counter++;
+
+                    //for displaying time 
+                    isCountDown ? remain = (limit * factor - counter) / factor : remain = counter / factor
+                    updateLaebl(remain);
+                } else {
+                    stopTimer()
+                }
+            }, 100);
+
+            function stopTimer() {
+                clearInterval(timer_instance)
+                timeOut = true;
+            }
+
+            function updateLaebl(index) {
+                $(".timer-text").text(index)
+            }
+        }
+    </script>
+
+</head>
+
+<body onload="onPageLoad()">
+    <div style="width: 500px; margin: 0 auto;">
+        <p class="timer-text ">0</p>
+        <div class="progress">
+
+            <div class="progress-bar progress-bar-striped progress-bar-animated" id="timer" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+    </div>
+</body>
+
+</html>
