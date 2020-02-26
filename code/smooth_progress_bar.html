@@ -12,13 +12,14 @@
 
     <script>
         function onPageLoad(){
-            progress(15,true,"#timer");
+            progress(15,false,"#timer");
         }
 
         function progress(limit,isCountDown,idselector) {
             factor = 10; //  (1000/your_desired_time_interval) ms 
             max_value = 100;
             isCountDown ? current_time = max_value : current_time = 0;
+            //Please delete the original "width" property in the style config come with your progerss bar 
             isCountDown ? $(idselector).css("width", "100%") : $(idselector).css("width", "0%")
             counter = 0 //check if it reaches end
 
